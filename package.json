@@ -1,0 +1,30 @@
+{
+  "name": "the-apple-store",
+  "version": "1.0.0",
+  "description": "the apple store where you get all apple store",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend-tas/server",
+    "server": "nodemon backend-tas/server",
+    "client": "npm start --prefix frontend-tas",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuvraj1999pratyush/The-Apple-Store.git"
+  },
+  "author": "yuvraaaj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuvraj1999pratyush/The-Apple-Store/issues"
+  },
+  "homepage": "https://github.com/yuvraj1999pratyush/The-Apple-Store#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.20"
+  }
+}
