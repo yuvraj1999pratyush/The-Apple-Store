@@ -1,27 +1,31 @@
+//imports
 const express = require('express');
 const dotenv = require('dotenv');
-const products = require('./data/products');
+const productRoutes = require('./routes/productRoutes');
+const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
+const connectDB = require('./config/db');
 
+//configuration
 dotenv.config();
-
+connectDB();
 const app = express();
 
+//middlewares
+//{middlesware has a function which takes (error, req, res, next)}
+
+
+//APIs
 app.get('/', (req, res) => {
     res.send('API is Running...')
 })
 
-app.get('/api/products', (req, res) => {
+app.use('/api/products', productRoutes);
 
-    res.json(products)
+//middleware for error handling
+app.use(notFound)
 
-})
+app.use(errorHandler)
 
-app.get('/api/products/:id', (req, res) => {
-
-    const product = products.find(p => p._id === req.params.id);
-    res.json(product)
-
-})
 
 const PORT = process.env.PORT || 5000;
 

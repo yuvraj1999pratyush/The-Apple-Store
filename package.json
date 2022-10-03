@@ -7,7 +7,9 @@
     "start": "node backend-tas/server",
     "server": "nodemon backend-tas/server",
     "client": "npm start --prefix frontend-tas",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend-tas/seeder",
+    "data:destroy": "node backend-tas/seeder -d"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,11 @@
   },
   "homepage": "https://github.com/yuvraj1999pratyush/The-Apple-Store#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.6.2"
   },
   "devDependencies": {
     "concurrently": "^7.4.0",
